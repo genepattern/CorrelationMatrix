@@ -8,7 +8,7 @@ categories=statistics;visualization
 commandLine=/CorrelationModule/correlation_matrix.py -i <input> -m <method> -d <dimension>
 #commandLine when run with source in module zip/taskLib:
 #commandLine=<python_3.9> <libdir>correlation_matrix.py -i <input> -m <method> -d <dimension>
-job.docker.image=bioconductor/bioconductor:3.16
+job.docker.image=genepattern/correlationmatrix:v2
 src.repo=https://github.com/username/CorrelationMatrix/
 cpuType=any
 description=Calculates correlation matrices from GCT files. This module takes as input a GCT file and returns a GCT file containing the correlation (Pearson, Spearman, or Kendall) of each column with all other columns or each row with all other rows, as selected by the user.
@@ -61,4 +61,4 @@ quality=development
 taskDoc=CorrelationMatrix calculates correlation matrices from GCT files, supporting Pearson, Spearman, and Kendall correlation methods. It can generate correlations between columns or rows of the input data matrix.
 taskType=statistics
 userid=your.email@example.com
-version=1.0
+version=2

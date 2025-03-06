@@ -2,6 +2,7 @@ FROM genepattern/docker-python36:0.4
 
 # Create a non-root user
 RUN useradd -ms /bin/bash gpuser
+RUN pip install genepattern-python
 
 # Create module directory as root
 RUN mkdir /CorrelationModule
@@ -20,8 +21,6 @@ RUN chown -R gpuser:gpuser /CorrelationModule && \
 USER gpuser
 WORKDIR /home/gpuser
 
-# Set the entrypoint
-ENTRYPOINT ["python3", "/CorrelationModule/correlation_matrix.py"]
 
 # Example build and run instructions:
 # docker build --rm -t genepattern/correlation-matrix:<tag> .
