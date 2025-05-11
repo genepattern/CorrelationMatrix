@@ -31,6 +31,10 @@ parser.add_argument("-d", "--dimension",
                     default="column",
                     choices=["column", "row"],
                     help="Dimension to correlate: 'column' or 'row' [default: column]")
+parser.add_argument("-o", "--output",
+                    type=str,
+                    default=None,
+                    help="Output GCT file path")
 # ~~~~Development Optional Arguments~~~~~ #
 parser.add_argument("-v", "--verbose",
                     action="store_true",
@@ -91,13 +95,13 @@ else:
 
 # Write the GCT file using genepattern-python
 if args.verbose:
-    print(f"Writing output to output.gct...")
+    print(f"Writing output to {args.output}...")
 
-write_gct(cor_df, file_path='./output.gct')
+write_gct(cor_df, file_path=args.output)
 
 if args.verbose:
     print(f"Generated correlation matrix with {cor_df.shape[0]} rows and {cor_df.shape[1]} columns")
-    print(f"Output written to output.gct")
+    print(f"Output written to {args.output}")
 
 end_of_time = timer()
 print("We are done! Wall time elapsed:", humanfriendly.format_timespan(end_of_time - beginning_of_time))
