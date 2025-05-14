@@ -65,10 +65,7 @@ if args.dimension == "column":
     matrix_data = gct_data.values
     if args.verbose:
         print(f"Calculating {args.method} correlation between columns...")
-    if args.method == "pearson":
-        cor_matrix = np.corrcoef(matrix_data.T)
-    else:  # for spearman or kendall
-        cor_matrix = pd.DataFrame(matrix_data).corr(method=args.method).values
+    cor_matrix = pd.DataFrame(matrix_data).corr(method=args.method).values
     col_names = gct_data.columns
     row_names = col_names
     cor_df = pd.DataFrame(cor_matrix, index=row_names, columns=col_names)
