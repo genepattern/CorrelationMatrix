@@ -34,7 +34,7 @@ parser.add_argument("-d", "--dimension",
 parser.add_argument("-o", "--output",
                     type=str,
                     default=None,
-                    help="Output GCT file path")
+                    help="Output GCT file name")
 # ~~~~Development Optional Arguments~~~~~ #
 parser.add_argument("-v", "--verbose",
                     action="store_true",
@@ -78,10 +78,7 @@ elif args.dimension == "row":
     matrix_data = modified_df.values
     if args.verbose:
         print(f"Calculating {args.method} correlation between rows...")
-    if args.method == "pearson":
-        cor_matrix = np.corrcoef(matrix_data)
-    else:  # for spearman or kendall
-        cor_matrix = pd.DataFrame(matrix_data.T).corr(method=args.method).values
+    cor_matrix = pd.DataFrame(matrix_data.T).corr(method=args.method).values
     row_names = modified_df.index
     col_names = row_names
     cor_df = pd.DataFrame(cor_matrix, index=row_names, columns=col_names)
@@ -92,13 +89,13 @@ else:
 
 # Write the GCT file using genepattern-python
 if args.verbose:
-    print(f"Writing output to {args.output}...")
+    print(f"Writing output to {args.output}.gct ...")
 
-write_gct(cor_df, file_path=args.output)
+write_gct(cor_df, file_path=f"{args.output}.gct")
 
 if args.verbose:
     print(f"Generated correlation matrix with {cor_df.shape[0]} rows and {cor_df.shape[1]} columns")
-    print(f"Output written to {args.output}")
+    print(f"Output written to {args.output}.gct")
 
 end_of_time = timer()
 print("We are done! Wall time elapsed:", humanfriendly.format_timespan(end_of_time - beginning_of_time))
