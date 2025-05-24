@@ -2,7 +2,7 @@
 
 **Description**: This GenePattern module calculates the correlation matrix from a GCT file using the specified correlation method and dimension.
 
-**Authors**: Edwin Huang, Aditya Kakarla, Claude
+**Authors**: Edwin Huang, Aditya Kakarla, Razeen Khan
 
 **Contact**: [Forum Link](https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/genepattern-help)
 
@@ -21,6 +21,7 @@ This module computes the correlation matrix of a given GCT file. It supports Pea
 | input *       | Input GCT file path                                   |               |
 | method        | Correlation method: 'pearson', 'spearman', or 'kendall' | pearson       |
 | dimension     | Dimension to correlate: 'column' or 'row'             | column        |
+| output *      | Output GCT file name                                  | input filename| 
 
 \* required
 
