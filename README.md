@@ -32,8 +32,8 @@ This module computes the correlation matrix of a given GCT file. It supports Pea
 
 ## Output Files
 
-1. **output.gct**  
-   The correlation matrix in GCT format. If the dimension is set to "column", this file contains correlations between columns of the input data; if set to "row", it contains correlations between rows.
+1. **<input_basename>_corr.gct**  
+   The correlation matrix in GCT format. If the dimension is set to "column", this file contains correlations between columns of the input data; if set to "row", it contains correlations between rows. Default file name is derived from the name of the input file.
 
 ## Example Data
 
