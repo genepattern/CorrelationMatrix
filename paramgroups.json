@@ -15,5 +15,13 @@
             "method",
             "dimension"
         ]
+    },
+    {
+        "name": "Output File",
+        "description": "Output file name",
+        "hidden": false,
+        "parameters": [
+            "output"
+        ]
     }
 ]

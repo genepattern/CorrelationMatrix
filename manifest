@@ -1,18 +1,18 @@
 #CorrelationMatrix
-#Wed Feb 19 15:30:00 UTC 2025
+#Wed May 14 01:42:11 UTC 2025
 JVMLevel=
 LSID=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00399:1.0
 author=Your Name;Your Institution
 categories=statistics;visualization
 #commandLine when run with source in Docker container:
-commandLine=/CorrelationModule/correlation_matrix.py -i <input> -m <method> -d <dimension>
+commandLine=/CorrelationModule/correlation_matrix.py -i <input> -m <method> -d <dimension> -o <output>
 #commandLine when run with source in module zip/taskLib:
-#commandLine=<python_3.9> <libdir>correlation_matrix.py -i <input> -m <method> -d <dimension>
+#commandLine=<python_3.9> <libdir>correlation_matrix.py -i <input> -m <method> -d <dimension> -o <output>
 job.docker.image=genepattern/correlationmatrix:v2
-src.repo=https://github.com/username/CorrelationMatrix/
+src.repo=https://github.com/genepattern/CorrelationMatrix
 cpuType=any
 description=Calculates correlation matrices from GCT files. This module takes as input a GCT file and returns a GCT file containing the correlation (Pearson, Spearman, or Kendall) of each column with all other columns or each row with all other rows, as selected by the user.
-documentationUrl=https://github.com/username/CorrelationMatrix/README.md
+documentationUrl=https://github.com/genepattern/CorrelationMatrix/blob/develop/README.md
 fileFormat=gct
 language=Python
 name=CorrelationMatrix
@@ -56,6 +56,20 @@ p3_prefix=
 p3_prefix_when_specified=
 p3_type=java.lang.String
 p3_value=column\=column;row\=row
+p4_MODE=
+p4_TYPE=TEXT
+p4_default_value=<input_basename>_corr.gct
+p4_description=Output file name for gct
+p4_fileFormat=
+p4_flag=-o
+p4_name=output
+p4_numValues=0..1
+p4_optional=
+p4_prefix=
+p4_prefix_when_specified=
+p4_type=java.lang.String
+p4_userSuppliedValuesOK=False
+p4_value=
 privacy=public
 quality=development
 taskDoc=CorrelationMatrix calculates correlation matrices from GCT files, supporting Pearson, Spearman, and Kendall correlation methods. It can generate correlations between columns or rows of the input data matrix.
